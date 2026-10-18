@@ -1,4 +1,4 @@
-name: فك الضغط
+name: unzip
 on: push
 permissions:
   contents: write
@@ -7,11 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: فك الضغط
-        run: |
+      - run: |
           unzip -o "*.zip" -d .
           rm -f *.zip
           ls -la
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: فك ضغط المشروع
+          commit_message: unzip project
